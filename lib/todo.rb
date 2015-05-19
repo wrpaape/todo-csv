@@ -109,7 +109,31 @@ class Todo
   end
 
   def delete_todo
+    puts "Is the todo you want to delete finished (y/n)?"
+    is_completed = get_input.downcase
+    if is_completed == "y"
+      completed_value = "yes"
+      puts "Which completed todo would you like to delete?"
+      todo_index = get_input.to_i
+    elsif is_completed == "n"
+      completed_value = "no"
+      puts "Which unfinished todo would you like to delete?"
+      todo_index = get_input.to_i
+    else
+      return
+    end
 
+    deleted_index = 0
+    @todos.each_with_index do |row, index|
+      if row["completed"] == completed_value
+        deleted_index += 1
+        if deleted_index == todo_index
+          @todos.delete(index)
+        end
+      end
+    end
+
+  save!
   end
 
   private
