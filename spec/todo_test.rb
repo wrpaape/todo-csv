@@ -13,6 +13,8 @@ class TodoTest < Test::Unit::TestCase
     todo_setup # Given
     @todo.view_todos # When
     assert($output.include?("Unfinished")) # Then
+    #We are asserting that the string 'Unfinished' is somewhere in the output of the program.
+    #That somewhere in the view_todos methos we said `puts "Unfinished"`
   end
 
   # ============
