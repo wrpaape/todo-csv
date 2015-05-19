@@ -15,7 +15,7 @@ end
 # Overriding Todo methods for easier testing
 class Todo
   def get_input
-    ($input ||= []).last #Use our global input instead of asking for actual user input
+    ($input ||= []).pop #Use our global input instead of asking for actual user input
   end
   def save!
     nil # Don't change our test file

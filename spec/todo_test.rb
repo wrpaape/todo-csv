@@ -61,4 +61,11 @@ class TodoTest < Test::Unit::TestCase
    @todo.mark_todo
    assert_equal("finish homework,yes\n", @todo.todos[0].to_s)
   end
+
+  def test_edit_todo_edits_todo
+   todo_setup # Given
+   $input = ['n','1','I HAVE A NEW NAME'].reverse
+   @todo.edit_todo
+   assert_equal("I HAVE A NEW NAME,no\n", @todo.todos[0].to_s)
+  end
 end

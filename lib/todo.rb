@@ -146,4 +146,4 @@ class Todo
   end
 end
 
-Todo.new('../spec/test_todos.csv').start
+# Todo.new('../spec/test_todos.csv').start
